@@ -125,6 +125,7 @@ std::cout << 3.141597f << std::endl;
 int PlayerHP; // 나 지금 메모리 4byte 쓸거야.
 PlayerHP = 100; // = 는 대입 연산자. 오른쪽의 값을 왼쪽의 변수에 넣어준다.
 std::cout << PlayerHP << std::endl; //cout에 변수를 넣어주면 해당하는 "값"을 출력함.
+*/
 
 return 0;
 
