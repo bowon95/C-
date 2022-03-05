@@ -1,3 +1,5 @@
+// 배운 내용 : 컴파일, cout, 변수와 메모리 타입 
+
 #include <iostream> 
 
 int main() 
