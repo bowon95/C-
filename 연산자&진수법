@@ -1,0 +1,23 @@
+#include <iostream>
+
+int main()
+{
+short Number = 32768; // short : 2byte, -32768 ~ 32767 의 값의 범위.
+std::cout << Number <<std::endl; // -32768 이 나옴.
+
+/*위의 예시에서, 
+
+bool Test1 = true;
+std::cout << Test1 <<< std::endl;
+
+char Text = 'A';
+
+int Number = 'A';
+
+std::cout << Text << std::endl;
+std::cout << Number1 << std::endl;
+
+int Number 2 = 0;
+
+
+
