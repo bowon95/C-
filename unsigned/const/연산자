@@ -2,7 +2,8 @@
 
 int main()
 {
-  // short :  2bytes. -32768 ~ 32767
+  //오버플로우 & 언더플로우 : 데이터 범위 값을 초과 / 미달 할  
+  short :  2bytes. -32768 ~ 32767
   
   short Number = 32768; // -32768이 나옴. 값의 범위를 벗어나면 의도하지 않은 값이 나온다. 
   std::cout << Number << std::endl;
