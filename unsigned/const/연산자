@@ -1,0 +1,138 @@
+#include <iostream>
+
+int main()
+{
+  // short :  2bytes. -32768 ~ 32767
+  
+  short Number = 32768; // -32768이 나옴. 값의 범위를 벗어나면 의도하지 않은 값이 나온다. 
+  std::cout << Number << std::endl;
+  
+  /*
+  short의 값의 범위
+     |---------------------------------------| 
+  -32768                                   32767
+ 
+  32768을 넣으면 -32768 로 이동. -32768나옴.
+  32769을 넣으면 -32767 로 나옴.
+  */
+  
+  bool Test1 = true;
+  std::cout << Test1 << std::endl;
+  
+  char Text = 'A'; // 숫자, 영어 : 문자 하나당 1byte. 한글 : 2bytes. char 에 한글 X
+                   // 문자 하나 저장 : ' ' 사용.
+  int Number1 = 'A'; // int 에 문자를 넣으면 아스키 코드 값을 출력함.
+  
+  std::cout << Text << std::endl;
+  std::cout << Number1 << std::endl;
+  
+  int Number2 = 0; 
+  /*
+  int Number2; 과 같이 변수에 값을 대입하지 않은 경우, 쓰레기 값(이상한 값)이 들어가 있다.
+  그래서 항상 변수의 값을 초기화 ( int Number2 = 0; ) 하고 써야함.
+  */
+  
+  unsigned short Number3 = -1; 
+  std::cout << Number << std::endl;
+  /*
+  변수는 기본적으로 signed. = 음수도 포함.
+  모든 변수 타입들은 unsigned 키워드를 이용해 -값을 +값으로 변환 가능.
+  ex. short 는 기본적인 값의 범위가 -32768 ~ 32767 이다.
+  unsigned short : 0 ~ 65535.
+  값의 범위를 초과한 값을 대입하면 의도하지 않는 값이 나옴.
+  */
+  
+  const int Number3 = 202020; 
+  const unsigned int Number5 = 2641155
+  /* 
+  상수 : 고정된 값. 한번 지정하면 변경할 수 없다. (const 키워드 사용)
+  상수 지정을 하지 않을 경우,
+  
+  int Number4 = 20;
+  Number4 = 10;  
+ 
+  위와 같이 10으로 값을 바꿀 수 있다. 그러나 상수화하면 불가능.
+  그럼 값을 굳이 고정 해야하는 이유?
+  팀 작업 시 상수지정을 하지 않으면 값이 변경될 수 있기 때문에
+  명확하게 표시해야함! ***
+  */
+ 
+  /* 
+  사칙연산자 : +, -, *, /, %(나머지 연산자), 
+  증감연산자 : ++(1 증가), --(1 감소) 
+  우선순위 : 괄호 > 곱셈/나눗셈 > 덧셈/뺄셈 
+  C++ 에서는 계산시 전부 소괄호로 감싼다. (중괄호 등 X)
+    
+  10 % 3 = 몫은 3. 나머지 1. 1을 구해주는 연산.
+  ex. 어떤 값이 짝수/홀수 인지 구해야 할 때 등 사용
+    
+  나눗셈은 연산시, A와 B가 모두 정수라면 소수점 자리가 모두 짤린다. 
+  정수 부분만 값이 나오게 된다. 
+  ex. 10 / 3 = 3.3333333333  (X)
+      10 / 3 = 3             (O)
+  소수점자리가 결과값 => A와 B 둘 중 하나가 실수여야 함. 
+    
+  나눗셈 대신 곱셈으로 처리할 수 있는 것은 곱셈으로 처리. 
+  (속도 :  곱셈 > 나눗셈)
+  */
+  
+  std::cout << "10 / 3 = " << std::endl;
+  std::cout << "10 / 3 = " << 10 / 3.0f << std::endl;
+  
+  int Number6 = 100; // 변수에 증갑 연산자 붙인다. Number++; = ++Number; 
+  
+  // std::cout << ++Number6 << std::endl; // 101. 증감 연산자가 변수 앞 : 1 바로 증감.
+  
+  std::cout << Number6++ << std::endl; // 100. 증감 연산자가 변수 뒤 : 출력되고 난 후 증감.
+  std::cout << Number6 << std::endl; // (1이 증가된 뒤) 101
+  
+  /*
+  관계 연산자 : <, >, <=, >=, ==(같다), !=(다르다)
+  결과값이 true, false 로 나오게 됨.
+  관계 연산자시, 괄호로 묶어야 함.
+  */
+  
+  std::cout << "10 < 20 =" << (10 < 20) << std::endl;   // true
+  std::cout << "10 > 20 =" << (10 > 20) << std::endl;   // false
+  std::cout << "10 <= 20 =" << (10 <= 20) << std::endl; // true
+  std::cout << "10 >= 20 =" << (10 >= 20) << std::endl; // false 
+  std::cout << "10 == 20 =" << (10 == 20) << std::endl; // false
+  std::cout << "10 != 20 =" << (10 != 20) << std::endl; // true
+  
+  /*
+  논리연산자 : AND(&&), OR(||), NOT(!) ***
+  값과 값을 연산하는 관계연산자와는 다르게 
+  참/거짓을 연산하여 결과로 참/거짓을 가진다. 
+  
+  AND : A와 B 모두 참일 경우 참. 나머지는 모두 거짓
+  OR :  A와 B 둘 중 하나가 참이면 참. 아니면 거짓.
+  NOT : 한 개에 대해서 반대의 결과를 수행. 참이면 거짓으로, 거짓이며 참으로.
+  
+  어떤 경우가 맞냐 아니냐 판단할 때,
+  이 타이밍에 이걸 해야 돼 / 하지 말아야 해 를 분류할 때
+  관계/논리 연산을 이용한다. 
+  
+  게임 상에서 플레이어가 스킬을 사용할 때, 
+  쿨타임이 사용 가능한지, 마나가 충분한 지 등을 만족해야 한다.
+  그런 경우에 AND 를 사용.
+  */
+  
+  std::cout << "false && false =" << (false && false) << std::endl;  // 0
+  std::cout << "true && false =" << (true && false) << std::endl;    // 0
+  std::cout << "false && true =" << (false && true) << std::endl;    // 0
+  std::cout << "true && true =" << (true && true) << std::endl;      // 1
+
+  std::cout << "false || false =" << (false || false) << std::endl;  // 0
+  std::cout << "true || false =" << (true || false) << std::endl;    // 1
+  std::cout << "false || true =" << (false || true) << std::endl;    // 1
+  std::cout << "true || true =" << (true || true) << std::endl;      // 1
+
+  std::cout << "!false =" << !false << std::endl;                    // 1
+  std::cout << "!true =" << !true << std::endl;                      // 0
+  
+  return 0;
+  }
+  
+  
+  
+    
